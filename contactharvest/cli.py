@@ -16,6 +16,33 @@ from contactharvest import Crawler
 
 console = Console()
 
+def print_banner():
+    """Display the ContactHarvest ASCII banner."""
+    banner = """
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                                                                           ║
+║   ██████╗ ██████╗ ███╗   ██╗████████╗ █████╗  ██████╗████████╗          ║
+║  ██╔════╝██╔═══██╗████╗  ██║╚══██╔══╝██╔══██╗██╔════╝╚══██╔══╝          ║
+║  ██║     ██║   ██║██╔██╗ ██║   ██║   ███████║██║        ██║             ║
+║  ██║     ██║   ██║██║╚██╗██║   ██║   ██╔══██║██║        ██║             ║
+║  ╚██████╗╚██████╔╝██║ ╚████║   ██║   ██║  ██║╚██████╗   ██║             ║
+║   ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝   ╚═╝             ║
+║                                                                           ║
+║  ██╗  ██╗ █████╗ ██████╗ ██╗   ██╗███████╗███████╗████████╗             ║
+║  ██║  ██║██╔══██╗██╔══██╗██║   ██║██╔════╝██╔════╝╚══██╔══╝             ║
+║  ███████║███████║██████╔╝╚██╗ ██╔╝█████╗  ███████╗   ██║                ║
+║  ██╔══██║██╔══██║██╔══██╗ ╚████╔╝ ██╔══╝  ╚════██║   ██║                ║
+║  ██║  ██║██║  ██║██║  ██║  ╚██╔╝  ███████╗███████║   ██║                ║
+║  ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚══════╝   ╚═╝                ║
+║                                                                           ║
+║          Advanced Asynchronous Web Crawler for Contact Extraction        ║
+║                                                                           ║
+║          GitHub: https://github.com/fxrhan/ContactHarvest               ║
+║                                                                           ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+"""
+    console.print(banner, style="bold cyan")
+
 def save_results(results, output_file):
     """Save results to a file (JSON or CSV)."""
     if not results:
@@ -59,6 +86,10 @@ async def main():
     parser.add_argument("--proxy", "-p", help="Proxy URL (e.g., http://user:pass@host:port)")
     parser.add_argument("--output", "-o", help="Output file path (.json or .csv)")
     args = parser.parse_args()
+
+    # Display banner
+    print_banner()
+    console.print()  # Add a blank line after banner
 
     # Create crawler instance
     crawler = Crawler(
