@@ -1,0 +1,8 @@
+requests>=2.25.0
+beautifulsoup4>=4.9.0
+lxml>=4.6.0
+setuptools>=45.0.0
+aiohttp>=3.8.0
+rich>=10.0.0
+fake-useragent>=0.1.11
+pytest-asyncio>=0.14.0
